@@ -14,6 +14,7 @@ public class TestingUltCal {
     @Test
     public void TestUC() {
         assertEquals(25.0, UltimateCalculator.EasyCalculate(5.0, "*", 5.0), 0.001);
+        assertEquals(28.0, UltimateCalculator.EasyCalculate(7.0, "*", 4.0), 0.001);
         assertEquals(5.562684646268003E-309, UltimateCalculator.EasyCalculate(1.0, "/", Double.MAX_VALUE), 0.001);
         assertEquals(1, UltimateCalculator.EasyCalculate(Double.MAX_VALUE, "/", Double.MAX_VALUE), 0.001);
         assertEquals(Double.POSITIVE_INFINITY, UltimateCalculator.EasyCalculate(Double.MAX_VALUE, "/", Double.MIN_VALUE), 0.001);
