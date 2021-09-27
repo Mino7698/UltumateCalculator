@@ -12,15 +12,23 @@ public class TestingUltCal {
     }
 
     @Test(expected = UltimateCalculator.CalculateException.class)
-    public void divisionNegativeExceptionTest() throws UltimateCalculator.CalculateException {
-        UltimateCalculator.EasyCalculate(Double.NEGATIVE_INFINITY, CalculateSymbols.DIVISION, 1);
+    public void divisionNegativeExceptionTest() /*throws UltimateCalculator.CalculateException*/ {
+        try {
+            UltimateCalculator.EasyCalculate(Double.NEGATIVE_INFINITY, CalculateSymbols.DIVISION, 0);
+        } catch (UltimateCalculator.CalculateException e) {
+            e.printStackTrace();
+        }
 
     }
 
     @Test(expected = UltimateCalculator.CalculateException.class)
-    public void divisionPositiveExceptionTest() throws UltimateCalculator.CalculateException {
-        UltimateCalculator.EasyCalculate(Double.POSITIVE_INFINITY, CalculateSymbols.DIVISION, Double.MIN_VALUE);
-        UltimateCalculator.EasyCalculate(Double.POSITIVE_INFINITY, CalculateSymbols.DIVISION, 10e-100);
+    public void divisionPositiveExceptionTest() /*throws UltimateCalculator.CalculateException*/ {
+        try {
+            UltimateCalculator.EasyCalculate(Double.POSITIVE_INFINITY, CalculateSymbols.DIVISION, Double.MIN_VALUE);
+            UltimateCalculator.EasyCalculate(Double.POSITIVE_INFINITY, CalculateSymbols.DIVISION, 10e-100);
+        } catch (UltimateCalculator.CalculateException e) {
+            e.printStackTrace();
+        }
     }
 
 }
