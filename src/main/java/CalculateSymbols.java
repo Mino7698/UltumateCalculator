@@ -1,7 +1,7 @@
 public enum CalculateSymbols {
-    p,
-    m,
-    d,
-    u
+    PLUS,
+    MINUS,
+    DIVISION,
+    MULTIPLICATION
 }
 // p=plus,m=minus,d=division,u=multiplication
