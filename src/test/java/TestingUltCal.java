@@ -5,7 +5,7 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 public class TestingUltCal {
-    UltimateCalculator TestUC = new UltimateCalculator();
+    //UltimateCalculator TestUC = new UltimateCalculator();
 
     @Before
     public void setUp() throws Exception {

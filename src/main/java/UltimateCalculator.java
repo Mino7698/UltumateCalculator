@@ -1,4 +1,5 @@
 public class UltimateCalculator {
+    private UltimateCalculator(){ }
 
     public static double EasyCalculate(double firstValue, CalculateSymbols e, double secondValue) throws CalculateException, CalculateException {
 
@@ -61,7 +62,6 @@ public class UltimateCalculator {
         private double number;
         public double getNumber(){return number;}
         public CalculateException(String message, double num){
-
             super(message);
             number=num;
         }
