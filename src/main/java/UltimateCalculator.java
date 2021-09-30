@@ -1,6 +1,7 @@
 public class UltimateCalculator {
 
     public static double EasyCalculate(double firstValue, CalculateSymbols e, double secondValue) throws CalculateException, CalculateException {
+
         switch (e) {
             case PLUS:return plus(firstValue,secondValue);
             case MULTIPLICATION:return multiplication(firstValue,secondValue);
@@ -11,60 +12,50 @@ public class UltimateCalculator {
     }
 
     private static double division(double firstValue, double secondValue) throws CalculateException{
-           if (firstValue / secondValue == Double.POSITIVE_INFINITY) {
+        if (secondValue == 0)
+            throw new CalculateException("НЕНОРМ: случилась Попытка деления на НоЛь",Double.POSITIVE_INFINITY);
+            else if (firstValue / secondValue == Double.POSITIVE_INFINITY)
                 throw new CalculateException("НЕНОРМ: получилась Плюс бесконечность (полученное число больше чем вмещает double)",Double.POSITIVE_INFINITY);
-            } else {
-                if (firstValue / secondValue == Double.NEGATIVE_INFINITY) {
-                    throw new CalculateException("НЕНОРМ: получилась Минус бесконечность (полученное число меньше чем вмещает double)",Double.NEGATIVE_INFINITY);
-                } else {
-                    if (firstValue != 0) {
-                        System.out.println("норм");
-                        return (firstValue / secondValue);
-                    } else {
-                        throw new CalculateException("НЕНОРМ: случилась Попытка деления на НоЛь",Double.POSITIVE_INFINITY);
-                    }
+             else if (firstValue / secondValue == Double.NEGATIVE_INFINITY)
+                 throw new CalculateException("НЕНОРМ: получилась Минус бесконечность (полученное число меньше чем вмещает double)",Double.NEGATIVE_INFINITY);
+                else {
+                    System.out.println("норм");
+                    return (firstValue / secondValue);
                 }
-            }
-      //  return (firstValue / secondValue);
     }
 
     private static double minus (double firstValue, double secondValue)throws CalculateException{
-        if (firstValue - secondValue == Double.POSITIVE_INFINITY) {
+        if (firstValue - secondValue == Double.POSITIVE_INFINITY)
                 throw new CalculateException("НЕНОРМ: получилась Плюс бесконечность (полученное число больше чем вмещает double)",Double.POSITIVE_INFINITY);
-            } else {
-                if (firstValue - secondValue == Double.NEGATIVE_INFINITY) {
+            else if (firstValue - secondValue == Double.NEGATIVE_INFINITY)
                     throw new CalculateException("НЕНОРМ: получилась Минус бесконечность (полученное число меньше чем вмещает double)",Double.NEGATIVE_INFINITY);
-                } else {
+                else {
                     System.out.println("норм");
                     return (firstValue - secondValue);
                 }
-            }
 
     }
     private static double multiplication (double firstValue, double secondValue)throws CalculateException{
-             if (firstValue * secondValue == Double.POSITIVE_INFINITY) {
-                throw new CalculateException("НЕНОРМ: получилась Плюс бесконечность (полученное число больше чем вмещает double)",Double.POSITIVE_INFINITY);
-            } else {
-                if (firstValue * secondValue == Double.NEGATIVE_INFINITY) {
-                    throw new CalculateException("НЕНОРМ: получилась Минус бесконечность (полученное число меньше чем вмещает double)",Double.NEGATIVE_INFINITY);
-                } else {
+             if (firstValue * secondValue == Double.POSITIVE_INFINITY)
+                 throw new CalculateException("НЕНОРМ: получилась Плюс бесконечность (полученное число больше чем вмещает double)",Double.POSITIVE_INFINITY);
+             else if (firstValue * secondValue == Double.NEGATIVE_INFINITY)
+                 throw new CalculateException("НЕНОРМ: получилась Минус бесконечность (полученное число меньше чем вмещает double)",Double.NEGATIVE_INFINITY);
+                else {
                     System.out.println("норм");
                     return (firstValue * secondValue);
-                }
-            }
+                 }
+
     }
     private static double plus (double firstValue, double secondValue) throws CalculateException {
-            if (firstValue + secondValue == Double.POSITIVE_INFINITY) {
+            if (firstValue + secondValue == Double.POSITIVE_INFINITY)
                 throw new CalculateException("НЕНОРМ: получилась Плюс бесконечность (полученное число больше чем вмещает double)",Double.POSITIVE_INFINITY);
-            } else {
-                if (firstValue + secondValue == Double.NEGATIVE_INFINITY) {
+                else if (firstValue + secondValue == Double.NEGATIVE_INFINITY)
                     throw new CalculateException("НЕНОРМ: получилась Минус бесконечность (полученное число меньше чем вмещает double)",Double.NEGATIVE_INFINITY);
-                } else {
+                    else {
                     System.out.println("норм");
                     return (firstValue + secondValue);
                 }
-            }
-        }
+    }
 
     public static class CalculateException extends Throwable {
         private double number;

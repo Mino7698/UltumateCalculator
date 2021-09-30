@@ -11,24 +11,49 @@ public class TestingUltCal {
     public void setUp() throws Exception {
     }
 
-    @Test(expected = UltimateCalculator.CalculateException.class)
-    public void divisionNegativeExceptionTest() /*throws UltimateCalculator.CalculateException*/ {
-        try {
-            UltimateCalculator.EasyCalculate(Double.NEGATIVE_INFINITY, CalculateSymbols.DIVISION, 0);
-        } catch (UltimateCalculator.CalculateException e) {
-            e.printStackTrace();
-        }
-
+    @Test //(expected = UltimateCalculator.CalculateException.class)
+    public void divisionNegativeExceptionTest() throws UltimateCalculator.CalculateException {
+        UltimateCalculator.EasyCalculate(Double.NEGATIVE_INFINITY, CalculateSymbols.DIVISION, 2);
     }
 
-    @Test(expected = UltimateCalculator.CalculateException.class)
-    public void divisionPositiveExceptionTest() /*throws UltimateCalculator.CalculateException*/ {
-        try {
-            UltimateCalculator.EasyCalculate(Double.POSITIVE_INFINITY, CalculateSymbols.DIVISION, Double.MIN_VALUE);
-            UltimateCalculator.EasyCalculate(Double.POSITIVE_INFINITY, CalculateSymbols.DIVISION, 10e-100);
-        } catch (UltimateCalculator.CalculateException e) {
-            e.printStackTrace();
-        }
+    @Test
+    public void divisionByZeroTest() throws UltimateCalculator.CalculateException {
+        UltimateCalculator.EasyCalculate(100, CalculateSymbols.DIVISION, 0);
+    }
+
+    @Test
+    public void divisionPositiveExceptionTest() throws UltimateCalculator.CalculateException {
+        UltimateCalculator.EasyCalculate(Double.POSITIVE_INFINITY, CalculateSymbols.DIVISION, Double.MIN_VALUE);
+    }
+
+    @Test
+    public void plusPositiveExceptionTest() throws UltimateCalculator.CalculateException {
+        UltimateCalculator.EasyCalculate(Double.MAX_VALUE, CalculateSymbols.PLUS, Double.MAX_VALUE);
+    }
+
+    @Test
+    public void plusNegativeExceptionTest() throws UltimateCalculator.CalculateException {
+        UltimateCalculator.EasyCalculate(-Double.MAX_VALUE, CalculateSymbols.PLUS, -Double.MAX_VALUE);
+    }
+
+    @Test
+    public void minusNegativeExceptionTest() throws UltimateCalculator.CalculateException {
+        UltimateCalculator.EasyCalculate(-Double.MAX_VALUE, CalculateSymbols.MINUS, Double.MAX_VALUE);
+    }
+
+    @Test
+    public void minusPositiveExceptionTest() throws UltimateCalculator.CalculateException {
+        UltimateCalculator.EasyCalculate(Double.MAX_VALUE, CalculateSymbols.MINUS, -Double.MAX_VALUE);
+    }
+
+    @Test
+    public void multiplicationNegativeExceptionTest() throws UltimateCalculator.CalculateException {
+        UltimateCalculator.EasyCalculate(-Double.MAX_VALUE, CalculateSymbols.MULTIPLICATION, Double.MAX_VALUE);
+    }
+
+    @Test
+    public void multiplicationPositiveExceptionTest() throws UltimateCalculator.CalculateException {
+        UltimateCalculator.EasyCalculate(Double.MAX_VALUE, CalculateSymbols.MULTIPLICATION, Double.MAX_VALUE);
     }
 
 }
